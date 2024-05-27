@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import '../../App.css'
-import trash from '../../assets/trash.svg'
 import {TextField, IconButton} from '@mui/material';
 import add from '../../assets/ic_add.svg'
+import {Todo} from "../Todo/Todo"
 
 const TaskManager = () => {
   const [tasks, setTasks] = useState([
-    { id: 1, title: 'Build website', date: 'Mar 1, 2023' },
-    { id: 2, title: 'Design logo', date: 'Mar 2, 2023' },
+    { id: 1, title: 'Recordatorio de comprar despensa', date: 'Mar 1, 2023' }
   ]);
   const [newTask, setNewTask] = useState('');
 
@@ -33,18 +32,10 @@ const TaskManager = () => {
       <h2 className='text'>Tasks</h2>
       <div>
         {tasks.map(task => (
-          <div key={task.id} style={{ display: 'flex', marginBottom: '10px' }}>
-            <div style={{ flexGrow: 1 }}>
-              <div className='text' style={{fontSize: '14px'}}>{task.title}</div>
-              <div className='text' style={{fontSize: '12px'}}><small>{task.date}</small></div>
-            </div>
-            <img
-              src={trash}
-              alt="Eliminar"
-              onClick={() => deleteTask(task.id)}
-              style={{ marginLeft: '10px', cursor: 'pointer', width: '20px', height: '20px', color: '#000000'}}
-            />
-          </div>
+          <Todo
+            task = {task}
+            deleteTask = {() => deleteTask(task.id)}
+          />
         ))}
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px'}}>
