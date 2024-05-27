@@ -1,0 +1,16 @@
+#root {
+  margin: 0 auto;
+}
+
+.text {
+  color: #000000;
+  text-align: left;
+}
+
+.card {
+  background-color:#FFFFFF;
+  height: 100vh;
+  width: 72vw;
+  border-radius: 0.2%;
+  align-content: center;
+}
